@@ -4,30 +4,39 @@
 	<title>Es Primo</title>
 	<link rel="stylesheet" type="text/css" href="Css\Styles.css">
 	<FORM class="numero">
-	<div><label>Numero:</label>
-	<input type="text" id="xx" size="5px"></div>
-	<div><input name="Verificar" type="button" onclick="primo(parseInt(document.getElementById('xx').value))" value="Verificar" /> </div>
+	<div><input name="Verificar" type="button" onclick="primo()" value="GENERAR" /> </div>
 	</FORM>
 	<script type="text/javascript">
-		function primo(num)
-		{
-
-			var primo=true;
-			for(i=2;i<num;i++)
-			{
-				if(num%i==0)
+		function primo()
+		{	
+			var VecPrimo;
+			VecPrimo = [];
+			var num=1;
+			var con=0;
+			var pos=0;
+			while(con<100)
+			{		
+				var primo=true;
+				for(i=2;i<num;i++)
 				{
-					primo=false
+					if(num%i==0)
+					{
+						primo=false;
+					}
 				}
+				if(primo)
+				{
+					VecPrimo[pos]=num;
+					con++;
+					pos++;
+				}
+				num++;
 			}
-			if(primo)
-			{
-				alert('Es Primo')
-			}
-			else
-			{
-				alert('No Es Primo')
-			}
+		    for (x=0;x<VecPrimo.length;x++)
+		    {
+           		   document.write("Nro:"+(x+1)+" "+ VecPrimo[x] +"<br />" );
+           	}
+   
 		}
 	</script>
 </head>
